@@ -1,17 +1,47 @@
 ---
-
+import Navigation from "../components/Navigation.astro";
+const pageTitle = "About me";
+const identity = {
+    name: "Ricardo Chavez",
+    country: "Mexico City",
+    occupation: "Software Engineer",
+    hobbies: ["Dibujante", "Artista Visual"],
+};
+const skills = [
+    "Python",
+    "FastAPI",
+    "PostgreSQL",
+    "Docker",
+    "Flutter",
+    "Linux Administration",
+    "Git", 
+    "REST APIs"
+];
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{pageTitle}</title>
+    </head>
+    <body>
+        <Navigation />
+        <p class="name">{identity.name}</p>
+        <p class="tagline mono">richiechz-dev · Mexico City</p>
+
+        <p class="bio">
+            I build backends, automate things, and occasionally make apps.
+            Comfortable working with <em>APIs, data pipelines, and Linux</em> — curious
+            about cloud infrastructure and how systems talk to each other.
+        </p>
+
+        <p class="label">Stack</p>
+        <ul>
+            {skills.map((skill) => <li>{skill}</li>)}
+        </ul>
+    </body>
 </html>
