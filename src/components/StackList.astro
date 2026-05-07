@@ -8,9 +8,9 @@ const { items } = Astro.props;
         stack
     </p>
     <!-- `flex-wrap` permite que los chips bajen de línea en móvil sin romper el layout. -->
+    <!-- `border` + `bg-zinc-950` da la sensación de chip sin usar cajas pesadas. -->
     <ul class="flex flex-wrap gap-2">
         {items.map((item) => (
-            <!-- `border` + `bg-zinc-950` da la sensación de chip sin usar cajas pesadas. -->
             <li class="rounded border border-zinc-800 bg-zinc-950 px-3 py-1 font-mono text-[0.75rem] text-zinc-300">
                 {item}
             </li>
