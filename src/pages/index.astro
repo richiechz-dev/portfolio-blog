@@ -3,7 +3,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import HeroIntro from "../components/HeroIntro.astro";
 import StackList from "../components/StackList.astro";
 
+
 import "../styles/global.css";
+import ProjectsTables from "../components/ProjectsTables.astro";
 
 const pageTitle = "About me";
 const identity = {
@@ -23,6 +25,8 @@ const skills = [
     "REST APIs",
 ];
 
+
+
 ---
 
 <BaseLayout pageTitle={pageTitle}>
@@ -39,6 +43,9 @@ const skills = [
                 bio="I build backends, automate things, and occasionally make apps. Comfortable working with APIs, data pipelines, and Linux — curious about cloud infrastructure and how systems talk to each other."
             />
             <StackList items={skills} />
+
+            <!-- ProjectCard muestra un proyecto destacado con título, descripción, stack y link. -->
+            <ProjectsTables />
         </section>
     </main>
 </BaseLayout>
