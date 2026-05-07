@@ -1,0 +1,18 @@
+---
+const { name, country, bio } = Astro.props;
+---
+
+<header class="space-y-2 text-center sm:text-left">
+    <!-- `font-mono` marca identidad; `sm:text-left` cambia el alineado solo en pantallas grandes. -->
+    <p class="font-mono text-4xl font-medium tracking-[-0.01em] text-zinc-100">
+        {name}
+    </p>
+    <!-- Texto secundario más pequeño y apagado para no competir con el nombre. -->
+    <p class="font-mono text-xs text-zinc-400 sm:text-sm">
+        richiechz-dev · {country}
+    </p>
+    <!-- `max-w-2xl` evita que el párrafo se vuelva demasiado ancho en desktop. -->
+    <p class="max-w-2xl text-sm leading-7 text-zinc-300 sm:text-[0.95rem]">
+        {bio}
+    </p>
+</header>

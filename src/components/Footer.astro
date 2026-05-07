@@ -1,8 +1,24 @@
 ---
 import Social from './Social.astro';
+import LinksList from './LinksList.astro';
+import OpenToWork from './OpenToWork.astro';
+
+const links = [
+    { label: 'GitHub', href: 'https://www.github.com/richiechz-dev' },
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/ricardochz' },
+];
 ---
 
-<footer>
-    <Social platform="github" username="richiechz-dev" />
-    <Social platform="linkedin" username="ricardochz" />
+<footer class="mx-auto w-full max-w-3xl px-5 pb-8 pt-0 sm:px-8 lg:px-10">
+    <!-- `mt` crea separación real con el contenido anterior; `border-t` cierra el bloque. -->
+    <div class="mt-8 space-y-4 border-t border-zinc-800 pt-4 sm:mt-10 sm:pt-5">
+        <LinksList links={links} />
+        <OpenToWork />
+
+        <!-- Redes sociales agrupadas debajo del estado para mantener jerarquía clara. -->
+        <div class="flex flex-wrap gap-4 pt-1">
+            <Social platform="github" username="richiechz-dev" />
+            <Social platform="linkedin" username="ricardochz" />
+        </div>
+    </div>
 </footer>
