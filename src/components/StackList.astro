@@ -1,0 +1,19 @@
+---
+const { items } = Astro.props;
+---
+
+<section aria-labelledby="stack-label" class="space-y-3">
+    <!-- Label pequeño en mono: funciona como separador visual del grupo. -->
+    <p id="stack-label" class="font-mono text-[0.72rem] uppercase tracking-[0.08em] text-zinc-500">
+        stack
+    </p>
+    <!-- `flex-wrap` permite que los chips bajen de línea en móvil sin romper el layout. -->
+    <!-- `border` + `bg-zinc-950` da la sensación de chip sin usar cajas pesadas. -->
+    <ul class="flex flex-wrap gap-2">
+        {items.map((item) => (
+            <li class="rounded border border-zinc-800 bg-zinc-950 px-3 py-1 font-mono text-[0.75rem] text-zinc-300">
+                {item}
+            </li>
+        ))}
+    </ul>
+</section>

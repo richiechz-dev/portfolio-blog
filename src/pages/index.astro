@@ -1,8 +1,15 @@
 ---
-import Navigation from "../components/Navigation.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HeroIntro from "../components/HeroIntro.astro";
+import StackList from "../components/StackList.astro";
+
+
+import "../styles/global.css";
+import ProjectsTables from "../components/ProjectsTables.astro";
+
 const pageTitle = "About me";
 const identity = {
-    name: "Ricardo Chavez",
+    name: "Ricardo Chavez Merino",
     country: "Mexico City",
     occupation: "Software Engineer",
     hobbies: ["Dibujante", "Artista Visual"],
@@ -14,34 +21,31 @@ const skills = [
     "Docker",
     "Flutter",
     "Linux Administration",
-    "Git", 
-    "REST APIs"
+    "Git",
+    "REST APIs",
 ];
+
+
+
 ---
 
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link rel="icon" href="/favicon.ico" />
-        <meta name="viewport" content="width=device-width" />
-        <meta name="generator" content={Astro.generator} />
-        <title>{pageTitle}</title>
-    </head>
-    <body>
-        <Navigation />
-        <p class="name">{identity.name}</p>
-        <p class="tagline mono">richiechz-dev · Mexico City</p>
+<BaseLayout pageTitle={pageTitle}>
+    <!--
+      `main` usa `pt-*` para separar el contenido del header sin tocar la navegación.
+      `max-w-3xl mx-auto` centra todo y `px-*` mantiene el margen lateral en móvil.
+    -->
+    <main class="mx-auto w-full max-w-3xl px-5 pt-16 pb-8 sm:px-8 sm:pt-20 sm:pb-10 lg:px-10">
+        <!-- `space-y-6` define la distancia vertical entre el bloque principal y el stack. -->
+        <section class="space-y-6">
+            <HeroIntro
+                name={identity.name}
+                country={identity.country}
+                bio="I build backends, automate things, and occasionally make apps. Comfortable working with APIs, data pipelines, and Linux — curious about cloud infrastructure and how systems talk to each other."
+            />
+            <StackList items={skills} />
 
-        <p class="bio">
-            I build backends, automate things, and occasionally make apps.
-            Comfortable working with <em>APIs, data pipelines, and Linux</em> — curious
-            about cloud infrastructure and how systems talk to each other.
-        </p>
-
-        <p class="label">Stack</p>
-        <ul>
-            {skills.map((skill) => <li>{skill}</li>)}
-        </ul>
-    </body>
-</html>
+            <!-- ProjectCard muestra un proyecto destacado con título, descripción, stack y link. -->
+            <ProjectsTables />
+        </section>
+    </main>
+</BaseLayout>
