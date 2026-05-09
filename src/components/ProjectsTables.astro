@@ -1,0 +1,24 @@
+---
+import ProjectCard from "../components/ProjectCard.astro";
+
+const featuredProject = {
+    title: "Portfolio Blog",
+    description:
+        "Personal site and blog built with Astro, using a minimal dark UI, reusable components, and Markdown posts.",
+    stack: ["Astro", "Tailwind", "Markdown"],
+    href: "/blog/",
+    featured: true,
+};
+---
+
+<p id="stack-label" class="font-mono text-[0.72rem] uppercase tracking-[0.08em] text-zinc-500">
+    projects
+</p>
+
+<ProjectCard
+    title={featuredProject.title}
+    description={featuredProject.description}
+    stack={featuredProject.stack}
+    href={featuredProject.href}
+    featured={featuredProject.featured}
+/>

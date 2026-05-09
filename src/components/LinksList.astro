@@ -1,0 +1,20 @@
+---
+const { links } = Astro.props;
+---
+
+<section class="space-y-1">
+    <div>
+        <!-- Label en mayúsculas y tracking amplio para que se lea como sección. -->
+        <p class="font-mono text-[0.72rem] uppercase tracking-[0.08em] text-zinc-500">
+            links
+        </p>
+        <!-- `flex-wrap` evita que los enlaces se salgan en pantallas pequeñas. -->
+        <div class="mt-1 flex flex-wrap gap-4 text-sm">
+            {links.map((link) => (
+                <a class="font-mono border-b border-zinc-700 pb-0.5 text-zinc-300 transition-colors hover:text-zinc-100" href={link.href}>
+                    {link.label}
+                </a>
+            ))}
+        </div>
+    </div>
+</section>
